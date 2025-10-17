@@ -63,7 +63,7 @@ export default function Spark() {
   };
 
   // 🔗 Relations (memoized)
-  const relations = useMemo(
+  const relations: Record<string, string[]> = useMemo(
     () => ({
       content: ['secret', 'intelligence'],
       media: ['suite', 'deepsea', 'intelligence'],
@@ -123,7 +123,7 @@ export default function Spark() {
 
     const compute = () => {
       const newLines: { key: string; d: string }[] = [];
-      const allRefs = { ...boxRefs.current, intelligence: intelligenceRef.current };
+      const allRefs: Record<string, HTMLDivElement | null> = { ...boxRefs.current, intelligence: intelligenceRef.current };
 
       activeBoxes.forEach((sourceId) => {
         const targets = relations[sourceId] || [];
